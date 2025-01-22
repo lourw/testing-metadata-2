@@ -19,6 +19,9 @@ env:
   NX_CLOUD_ENVIRONMENT: 'development'
   NX_PERF_LOGGING: true
   NX_CI: true
+  NX_WORKSPACE_DATA_DIRECTORY: ".nx/cache"
+  NX_PROJECT_GRAPH_CACHE_DIRECTORY: ".nx/cache"
+
 
 jobs:
   main:
