@@ -14,8 +14,8 @@
     ],
     "sharedGlobals": ["{workspaceRoot}/.github/workflows/ci.yml"]
   },
-  "nxCloudUrl": "https://staging.nx.app",
-  "nxCloudId": "679015950a65cf359ae5e47f",
+  "nxCloudUrl": "https://snapshot.nx.app",
+  "nxCloudId": "6792b5c33abdfe6f56575eda",
   "plugins": [
     {
       "plugin": "@nx/next/plugin",
@@ -26,12 +26,36 @@
         "serveStaticTargetName": "serve-static"
       }
     },
-    { "plugin": "@nx/playwright/plugin", "options": { "targetName": "e2e" } },
-    { "plugin": "@nx/eslint/plugin", "options": { "targetName": "lint" } },
-    { "plugin": "@nx/jest/plugin", "options": { "targetName": "test" } }
+    {
+      "plugin": "@nx/playwright/plugin",
+      "options": {
+        "targetName": "e2e"
+      }
+    },
+    {
+      "plugin": "@nx/eslint/plugin",
+      "options": {
+        "targetName": "lint"
+      }
+    },
+    {
+      "plugin": "@nx/jest/plugin",
+      "options": {
+        "targetName": "test"
+      }
+    }
   ],
-  "targetDefaults": { "e2e-ci--**/*": { "dependsOn": ["^build"] } },
+  "targetDefaults": {
+    "e2e-ci--**/*": {
+      "dependsOn": ["^build"]
+    }
+  },
   "generators": {
-    "@nx/next": { "application": { "style": "scss", "linter": "eslint" } }
+    "@nx/next": {
+      "application": {
+        "style": "scss",
+        "linter": "eslint"
+      }
+    }
   }
 }
