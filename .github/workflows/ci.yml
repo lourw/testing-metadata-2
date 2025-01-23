@@ -26,7 +26,6 @@ env:
 jobs:
   main:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
         with:
@@ -45,17 +44,14 @@ jobs:
       - run: npx playwright install --with-deps
       - uses: nrwl/nx-set-shas@v4
 
-      # Measure the project graph computation (cold)
+      # Measure the computation of the project graph (cold)
       - name: Temporarily measure the computation of the project graph (cold)
-        run: |
-          echo "Running Nx Cold"
-          time npx nx show projects
+        run: npx nx show projects
 
-      # Measure the project graph recomputation (warm)
+      # Measure the recomputation of the project graph (warm)
       - name: Temporarily measure the recomputation of the project graph (warm)
-        run: |
-          echo "Running Nx Warm"
-          time npx nx show projects
+        run: npx nx show projects
 
-      # Other steps (if applicable)
+      # Prepend any command with "nx-cloud record --" to record its logs to Nx Cloud
+      # Nx Affected runs only tasks affected by the changes in this PR/commit
       - run: npx nx affected -t lint test build e2e
